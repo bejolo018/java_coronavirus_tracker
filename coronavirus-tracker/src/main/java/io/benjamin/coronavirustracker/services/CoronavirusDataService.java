@@ -42,6 +42,9 @@ public class CoronavirusDataService {
             LocationStats locationStat = new LocationStats();
             locationStat.setLocation(record.get("Combined_Key"));
             locationStat.setLatestTotalCases(Integer.parseInt(record.get(record.size() -1)));
+            System.out.println(locationStat);
+            newStats.add(locationStat);
         }
+        this.allStats = newStats;
     }
 }
