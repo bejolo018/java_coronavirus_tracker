@@ -9,19 +9,31 @@
 </head>
 
 <body>
+<div class="container">
+    
+<h1>Coronavirus Tracker</h1>
+<p> This application lists the current number of COVID-19 cases reported across America.</p>
 
-<p th:text="${testName}"></p>
 
-<table>
-    <tr>
-        <th>Location</th>
-        <th>Total Cases Reported</th>
-    </tr>
-    <tr th:each="locationStat : ${locationStats}">
-        <td th:text="${locationStat.location}"></td>
-        <td th:text="${locationStat.latestTotalCases}">0</td>
-    </tr>
-</table>
+<div class="jumbotron">
+    <h1 class="display-4" th:text="${totalReportedCases}">Hello, world!</h1>
+    <p class="lead">Total cases reported.</p>
+</div>
+
+
+    <table>
+        <tr>
+            <th>Location</th>
+            <th>Total Cases Reported</th>
+            <th>Changes since yesterday</th>
+        </tr>
+        <tr th:each="locationStat : ${locationStats}">
+            <td th:text="${locationStat.location}"></td>
+            <td th:text="${locationStat.latestTotalCases}">0</td>
+            <td th:text="${locationStat.caseFlux}">0</td>
+        </tr>
+    </table>
+</div>
 
 </body>
 

@@ -37,8 +37,6 @@ public class CoronavirusDataService {
                 .build();
         HttpResponse<String> httpResponse = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        System.out.println();
-
         StringReader csvBodyReader = new StringReader(httpResponse.body());
 
         Iterable<CSVRecord> records = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(csvBodyReader);
@@ -46,8 +44,10 @@ public class CoronavirusDataService {
         for (CSVRecord record : records) {
             LocationStats locationStat = new LocationStats();
             locationStat.setLocation(record.get("Combined_Key"));
-            locationStat.setLatestTotalCases(Integer.parseInt(record.get(record.size() -1)));
-            System.out.println(locationStat);
+            int latestCases = Integer.parseInt(record.get(record.size() - 1));
+            int previousDayCases = Integer.parseInt(record.get(record.size() - 1));
+            locationStat.setLatestTotalCases(latestCases);
+            locationStat.setCaseFlux(latestCases);
             newStats.add(locationStat);
         }
         this.allStats = newStats;
