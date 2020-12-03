@@ -67,6 +67,7 @@
                     <processTypes>
                         <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
                     </processTypes>
+                    <appName>Coronavirus Tracker</appName>
                 </configuration>
                 <version>3.0.3</version>
             </plugin>
