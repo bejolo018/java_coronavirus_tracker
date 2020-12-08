@@ -63,11 +63,11 @@
             <plugin>
                 <groupId>com.heroku.sdk</groupId>
                 <artifactId>heroku-maven-plugin</artifactId>
-                <configuration>
-                    <processTypes>
+                    <processTypes>                <configuration>
+
                         <web>java $JAVA_OPTS -cp target/classes:target/dependency/* Main</web>
                     </processTypes>
-                    <appName>Coronavirus Tracker</appName>
+                    <appName>cryptic-temple-99151</appName>
                 </configuration>
                 <version>3.0.3</version>
             </plugin>
